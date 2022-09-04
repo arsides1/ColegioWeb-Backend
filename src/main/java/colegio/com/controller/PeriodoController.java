@@ -94,10 +94,10 @@ public class PeriodoController {
 
 
 
-//    @PutMapping("/editar/{id}")
-@RequestMapping(value = "/editar/{id}",
+ @PutMapping("/editar/{id}")
+/*@RequestMapping(value = "/editar/{id}",
         produces = "application/json",
-        method={ RequestMethod.GET, RequestMethod.PUT })
+        method={ RequestMethod.GET, RequestMethod.PUT })*/
     //@RequestMapping(value = "/editar/{id}", method = {RequestMethod.PUT })
     public ResponseEntity<?> editar(@PathVariable(name = "id") Long idPeriodo,
                                     @RequestBody Periodo periodo) {
