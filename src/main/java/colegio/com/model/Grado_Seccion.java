@@ -1,9 +1,8 @@
 package colegio.com.model;
 
+import colegio.com.convertir.BooleanConverters;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +13,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of={"id"})
+@ToString
 @Table(name = "grado_seccion")
 public class Grado_Seccion implements Serializable {
 
@@ -33,8 +34,9 @@ public class Grado_Seccion implements Serializable {
     @Column(length = 100, nullable = false)
     private String descripcionSeccion;
 
-    @Column(columnDefinition = "TINYINT(1)")
-    private boolean Estado;
+    @Column()
+    @Convert(converter= BooleanConverters.CharacterConverter.class )
+    private Boolean estado;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechaRegistro;

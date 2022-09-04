@@ -1,10 +1,9 @@
 package colegio.com.model;
 
+import colegio.com.convertir.BooleanConverters;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,6 +15,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of={"id"})
+@ToString
 @Table(name = "alumno")
 public class Alumno implements Serializable {
 
@@ -49,13 +50,19 @@ public class Alumno implements Serializable {
 	private String ciudad;
 
 	@Column(length = 100, nullable = false)
-	private String Direccion;
+	private String direccion;
 
-	@Column(columnDefinition = "TINYINT(1)")
-	private boolean Estado;
+	@Column(length = 100, nullable = false)
+	private String nombreColegio;
+
+
+	@Column()
+	@Convert(converter= BooleanConverters.CharacterConverter.class )
+	private Boolean estado;
 
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaRegistro;
+
 
 
 

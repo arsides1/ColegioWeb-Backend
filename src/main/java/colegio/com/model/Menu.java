@@ -1,10 +1,9 @@
 package colegio.com.model;
 
+import colegio.com.convertir.BooleanConverters;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,6 +14,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of={"id"})
+@ToString
 @Table(name = "menu")
 public class Menu implements Serializable {
 
@@ -37,8 +38,9 @@ public class Menu implements Serializable {
     @Column(length = 50, nullable = false)
     private String icono;
 
-    @Column(columnDefinition = "TINYINT(1)")
-    private boolean Estado;
+    @Column()
+    @Convert(converter= BooleanConverters.CharacterConverter.class )
+    private Boolean estado;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechaRegistro;

@@ -65,8 +65,8 @@ public class PeriodoController {
 
 
 
-    //@PutMapping("/actualizar")
-   @RequestMapping(value = "/actualizar", method = { RequestMethod.GET, RequestMethod.PUT })
+    @PutMapping("/actualizar")
+   //@RequestMapping(value = "/actualizar", method = { RequestMethod.GET, RequestMethod.PUT })
     public ResponseEntity<?> actualizar(@RequestBody Periodo periodo) {
 
 
