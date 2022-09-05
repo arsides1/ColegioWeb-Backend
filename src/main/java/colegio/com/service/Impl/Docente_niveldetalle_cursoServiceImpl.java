@@ -39,6 +39,18 @@ public class Docente_niveldetalle_cursoServiceImpl implements Docente_niveldetal
 
 	@Override
 	public void update(Docente_niveldetalle_curso docente_niveldetalle_curso) {
+		Docente_niveldetalle_curso docente_niveldetalle_cursoActual = docente_niveldetalle_cursoRepo.findById(docente_niveldetalle_curso.getIdDocenteniveldetallecurso()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (docente_niveldetalle_cursoActual !=null)
+		{
+			docente_niveldetalle_cursoActual.setIdNivelDetalleCurso(docente_niveldetalle_curso.getIdNivelDetalleCurso());
+			docente_niveldetalle_cursoActual.setIdDocente(docente_niveldetalle_curso.getIdDocente());
+			docente_niveldetalle_cursoActual.setEstado(docente_niveldetalle_curso.getEstado());
+			docente_niveldetalle_cursoActual.setFechaRegistro(docente_niveldetalle_curso.getFechaRegistro());
+			docente_niveldetalle_cursoActual = docente_niveldetalle_cursoRepo.save(docente_niveldetalle_cursoActual);
+		}
+		docente_niveldetalle_curso = docente_niveldetalle_cursoActual;
 		LocalDate fechaActual = LocalDate.now();
 		docente_niveldetalle_curso.setFechaRegistro(fechaActual);
 		docente_niveldetalle_cursoRepo.save(docente_niveldetalle_curso);

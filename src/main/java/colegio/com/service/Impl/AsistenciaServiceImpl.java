@@ -2,6 +2,7 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Asistencia;
+import colegio.com.model.Periodo;
 import colegio.com.repository.AsistenciaRepositoryJPA;
 import colegio.com.service.AsistenciaService;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,17 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 
 	@Override
 	public void update(Asistencia asistencia) {
+		Asistencia asistenciaActual = asistenciaRepo.findById(asistencia.getIdAsistencia()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (asistenciaActual !=null)
+		{
+			asistenciaActual.setFechaIngreso(asistencia.getFechaIngreso());
+			asistenciaActual.setIngresoConfirmado(asistencia.getIngresoConfirmado());
+			asistenciaActual.setIdAlumno(asistencia.getIdAlumno());
+			asistenciaActual = asistenciaRepo.save(asistenciaActual);
+		}
+		asistencia = asistenciaActual;
 		LocalDate fechaActual = LocalDate.now();
 		asistencia.setFechaIngreso(fechaActual);
 		asistenciaRepo.save(asistencia);

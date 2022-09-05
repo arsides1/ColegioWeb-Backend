@@ -30,14 +30,14 @@ public class Periodo implements Serializable {
     private String descripcion;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
+   //@Temporal(TemporalType.DATE)
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date fechaInicio;
+    private LocalDate fechaInicio;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
+   // @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date fechaFin;
+    private LocalDate fechaFin;
 
     @Column()
     @Convert(converter= BooleanConverters.CharacterConverter.class )

@@ -2,6 +2,7 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Curricula;
+import colegio.com.model.Periodo;
 import colegio.com.repository.CurriculaRepositoryJPA;
 import colegio.com.service.CurriculaService;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,19 @@ public class CurriculaServiceImpl implements CurriculaService {
 
 	@Override
 	public void update(Curricula curricula) {
+		Curricula curriculaActual = curriculaRepo.findById(curricula.getIdCurricula()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (curriculaActual !=null)
+		{
+			curriculaActual.setIdDocenteniveldetallecurso(curricula.getIdDocenteniveldetallecurso());
+			curriculaActual.setDescripcion(curricula.getDescripcion());
+			curriculaActual.setEstado(curricula.getEstado());
+			curriculaActual.setFechaRegistro(curricula.getFechaRegistro());
+			curriculaActual = curriculaRepo.save(curriculaActual);
+		}
+		curricula = curriculaActual;
+
 		LocalDate fechaActual = LocalDate.now();
 		curricula.setFechaRegistro(fechaActual);
 		curriculaRepo.save(curricula);

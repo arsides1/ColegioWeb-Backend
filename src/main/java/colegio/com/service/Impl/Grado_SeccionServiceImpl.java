@@ -2,6 +2,7 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Grado_Seccion;
+import colegio.com.model.Periodo;
 import colegio.com.repository.Grado_SeccionRepositoryJPA;
 import colegio.com.service.Grado_SeccionService;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,18 @@ public class Grado_SeccionServiceImpl implements Grado_SeccionService {
 
 	@Override
 	public void update(Grado_Seccion grado_Seccion) {
+	Grado_Seccion grado_SeccionActual = grado_SeccionRepo.findById(grado_Seccion.getIdGradoSeccion()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (grado_SeccionActual !=null)
+		{
+			grado_SeccionActual.setDescripcionGrado(grado_Seccion.getDescripcionGrado());
+			grado_SeccionActual.setDescripcionSeccion(grado_Seccion.getDescripcionSeccion());
+			grado_SeccionActual.setEstado(grado_Seccion.getEstado());
+			grado_SeccionActual.setFechaRegistro(grado_Seccion.getFechaRegistro());
+			grado_SeccionActual = grado_SeccionRepo.save(grado_SeccionActual);
+		}
+		grado_Seccion = grado_SeccionActual;
 		LocalDate fechaActual = LocalDate.now();
 		grado_Seccion.setFechaRegistro(fechaActual);
 		grado_SeccionRepo.save(grado_Seccion);

@@ -2,6 +2,7 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Alumno;
+import colegio.com.model.Periodo;
 import colegio.com.repository.AlumnoRepositoryJPA;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,26 @@ public class AlumnoServiceImpl implements AlumnoService {
 
 	@Override
 	public void update(Alumno alumno) {
+		Alumno alumnoActual = alumnoRepo.findById(alumno.getIdAlumno()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (alumnoActual !=null)
+		{
+			alumnoActual.setCodigo(alumno.getCodigo());
+			alumnoActual.setNombres(alumno.getNombres());
+			alumnoActual.setApellidos(alumno.getApellidos());
+			alumnoActual.setDni(alumno.getDni());
+			alumnoActual.setFechaNacimiento(alumno.getFechaNacimiento());
+			alumnoActual.setSexo(alumno.getSexo());
+			alumnoActual.setCiudad(alumno.getCiudad());
+			alumnoActual.setDistrito(alumno.getDistrito());
+			alumnoActual.setDireccion(alumno.getDireccion());
+			alumnoActual.setNombreColegio(alumno.getNombreColegio());
+			alumnoActual.setEstado(alumno.getEstado());
+			alumnoActual.setFechaRegistro(alumno.getFechaRegistro());
+			alumnoActual = alumnoRepo.save(alumnoActual);
+		}
+		alumno = alumnoActual;
 		LocalDate fechaActual = LocalDate.now();
 		alumno.setFechaRegistro(fechaActual);
 		alumnoRepo.save(alumno);

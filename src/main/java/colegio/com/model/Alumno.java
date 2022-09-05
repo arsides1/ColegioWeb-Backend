@@ -50,6 +50,9 @@ public class Alumno implements Serializable {
 	private String ciudad;
 
 	@Column(length = 100, nullable = false)
+	private String distrito;
+
+	@Column(length = 100, nullable = false)
 	private String direccion;
 
 	@Column(length = 100, nullable = false)

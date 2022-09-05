@@ -41,7 +41,7 @@ public class Docente implements Serializable {
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Column(length = 50, nullable = false)
     private String sexo;
@@ -51,9 +51,11 @@ public class Docente implements Serializable {
 
     @Column(length = 100, nullable = false)
     private String ciudad;
+    @Column(length = 100, nullable = false)
+    private String distrito;
 
     @Column(length = 100, nullable = false)
-    private String Direccion;
+    private String direccion;
 
     @Column(length = 100, nullable = false)
     private String email;

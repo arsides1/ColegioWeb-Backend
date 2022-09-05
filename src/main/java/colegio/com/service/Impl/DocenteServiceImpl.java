@@ -2,6 +2,7 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Docente;
+import colegio.com.model.Periodo;
 import colegio.com.repository.DocenteRepositoryJPA;
 import colegio.com.service.DocenteService;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,27 @@ public class DocenteServiceImpl implements DocenteService {
 
 	@Override
 	public void insert(Docente docente) {
+		Docente docenteActual = docenteRepo.findById(docente.getIdDocente()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (docenteActual !=null)
+		{
+			docenteActual.setCodigo(docente.getCodigo());
+			docenteActual.setNombres(docente.getNombres());
+			docenteActual.setApellidos(docente.getApellidos());
+			docenteActual.setDni(docente.getDni());
+			docenteActual.setFechaNacimiento(docente.getFechaNacimiento());
+			docenteActual.setSexo(docente.getSexo());
+			docenteActual.setGradoEstudio(docente.getGradoEstudio());
+			docenteActual.setCiudad(docente.getCiudad());
+			docenteActual.setDistrito(docente.getDistrito());
+			docenteActual.setDireccion(docente.getDireccion());
+			docenteActual.setEmail(docente.getEmail());
+			docenteActual.setEstado(docente.getEstado());
+			docenteActual.setFechaRegistro(docente.getFechaRegistro());
+			docenteActual = docenteRepo.save(docenteActual);
+		}
+		docente = docenteActual;
 		LocalDate fechaActual = LocalDate.now();
 		docente.setFechaRegistro(fechaActual);
 		docenteRepo.save(docente);

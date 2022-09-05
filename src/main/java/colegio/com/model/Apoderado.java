@@ -34,13 +34,16 @@ public class Apoderado implements Serializable {
     @Column(length = 50, nullable = false)
     private String nombres;
 
+    @Column(length = 50, nullable = false)
+    private String apellidos;
+
     @Column(length = 8, unique = true, nullable = false)
     private String dni;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date fechNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Column(nullable = false)
     private Long sexo;
@@ -53,11 +56,17 @@ public class Apoderado implements Serializable {
     private String ciudad;
 
     @Column( length = 100, nullable = false)
+    private String distrito;
+
+    @Column( length = 100, nullable = false)
     private String direccion;
 
     @Column(length = 9, nullable=false)
-    private String telefono;
+    private String celular;
 
+    @Column()
+    @Convert(converter= BooleanConverters.CharacterConverter.class )
+    private Boolean estado;
 
     //@Temporal(TemporalType.DATE)
     @JsonFormat(pattern = "dd-MM-yyyy")

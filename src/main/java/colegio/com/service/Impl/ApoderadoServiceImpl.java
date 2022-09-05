@@ -1,6 +1,7 @@
 package colegio.com.service.Impl;
 
 
+import colegio.com.model.Alumno;
 import colegio.com.model.Apoderado;
 import colegio.com.repository.ApoderadoRepositoryJPA;
 import colegio.com.service.ApoderadoService;
@@ -39,6 +40,27 @@ public class ApoderadoServiceImpl implements ApoderadoService {
 
 	@Override
 	public void update(Apoderado apoderado) {
+		Apoderado apoderadoActual = apoderadoRepo.findById(apoderado.getIdApoderado()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (apoderadoActual !=null)
+		{
+			apoderadoActual.setTipoRelacion(apoderado.getTipoRelacion());
+			apoderadoActual.setNombres(apoderado.getNombres());
+			apoderadoActual.setApellidos(apoderado.getApellidos());
+			apoderadoActual.setDni(apoderado.getDni());
+			apoderadoActual.setFechaNacimiento(apoderado.getFechaNacimiento());
+			apoderadoActual.setSexo(apoderado.getSexo());
+			apoderadoActual.setEstadoCivil(apoderado.getEstadoCivil());
+			apoderadoActual.setCiudad(apoderado.getCiudad());
+			apoderadoActual.setDistrito(apoderado.getDistrito());
+			apoderadoActual.setDireccion(apoderado.getDireccion());
+			apoderadoActual.setCelular(apoderado.getCelular());
+			apoderadoActual.setEstado(apoderado.getEstado());
+			apoderadoActual.setFechaRegistro(apoderado.getFechaRegistro());
+			apoderadoActual = apoderadoRepo.save(apoderadoActual);
+		}
+		apoderado = apoderadoActual;
 		LocalDate fechaActual = LocalDate.now();
 		apoderado.setFechaRegistro(fechaActual);
 		apoderadoRepo.save(apoderado);

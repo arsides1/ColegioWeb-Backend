@@ -62,7 +62,7 @@ public class PeriodoServiceImpl implements PeriodoService {
 	@Override
 	public void update(Periodo periodo) {
 
-		Periodo periodoActual = periodoRepo.findById(periodo.getIdPeriodo()).orElse(null);
+		/*Periodo periodoActual = periodoRepo.findById(periodo.getIdPeriodo()).orElse(null);
 
 		//valido si es distinto a nulo
 		if (periodoActual !=null)
@@ -74,7 +74,7 @@ public class PeriodoServiceImpl implements PeriodoService {
             periodoActual.setFechaRegistro(periodo.getFechaRegistro());
 			periodoActual = periodoRepo.save(periodoActual);
 		}
-		periodo = periodoActual;
+		periodo = periodoActual;*/
 		LocalDate fechaActual = LocalDate.now();
 		periodo.setFechaRegistro(fechaActual);
 		//periodo.setEstado(false);

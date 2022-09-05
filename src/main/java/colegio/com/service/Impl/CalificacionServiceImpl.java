@@ -2,6 +2,7 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Calificacion;
+import colegio.com.model.Periodo;
 import colegio.com.repository.CalificacionRepositoryJPA;
 import colegio.com.service.CalificacionService;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,19 @@ public class CalificacionServiceImpl implements CalificacionService {
 
 	@Override
 	public void update(Calificacion calificacion) {
+		Calificacion calificacionActual = calificacionRepo.findById(calificacion.getIdCalificacion()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (calificacionActual !=null)
+		{
+			calificacionActual.setIdAlumno(calificacion.getIdAlumno());
+			calificacionActual.setIdCurricula(calificacion.getIdCurricula());
+			calificacionActual.setNota1(calificacion.getNota1());
+			calificacionActual.setEstado(calificacion.getEstado());
+			calificacionActual.setFechaRegistro(calificacion.getFechaRegistro());
+			calificacionActual = calificacionRepo.save(calificacionActual);
+		}
+		calificacion = calificacionActual;
 		LocalDate fechaActual = LocalDate.now();
 		calificacion.setFechaRegistro(fechaActual);
 		calificacionRepo.save(calificacion);

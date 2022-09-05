@@ -114,14 +114,18 @@ public class PeriodoController {
 //        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encontro periodo con ese id");
 
         //Periodo periodoActual = periodoService.findById(idPeriodo);
-        if (periodoActual == null)
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+     Map<String, String> respuesta = new HashMap<>();
+        if (periodoActual != null) {
+            this.periodoService.update(periodo);
+
+            respuesta.put("codigoRespuesta", "Ok");
+            respuesta.put("msjRespuesta", "Se Actualizo satisfactoriamente los datos del Periodo con codigo: " + String.valueOf(idPeriodo));
+            return new ResponseEntity<Object>(respuesta, HttpStatus.ACCEPTED);
+        }
+
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND,
                     "No se pudo actualizar el Periodo");
-        this.periodoService.update(periodo);
-        Map<String,String>respuesta = new HashMap<>();
-        respuesta.put("codigoRespuesta", "Ok");
-        respuesta.put("msjRespuesta","Se Actualizo satisfactoriamente los datos del Periodo con codigo: "+ String.valueOf(idPeriodo));
-        return new ResponseEntity<Object>(respuesta, HttpStatus.ACCEPTED);
+
     }
 
     @DeleteMapping("/borrar/{id}")

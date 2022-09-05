@@ -2,6 +2,7 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Curso;
+import colegio.com.model.Periodo;
 import colegio.com.repository.CursoRepositoryJPA;
 import colegio.com.service.CursoService;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,17 @@ public class CursoServiceImpl implements CursoService {
 
 	@Override
 	public void update(Curso curso) {
+		Curso cursoActual = cursoRepo.findById(curso.getIdCurso()).orElse(null);
+
+		//valido si es distinto a nulo
+		if (cursoActual !=null)
+		{
+			cursoActual.setDescripcion(curso.getDescripcion());
+			cursoActual.setEstado(curso.getEstado());
+			cursoActual.setFechaRegistro(curso.getFechaRegistro());
+			cursoActual = cursoRepo.save(cursoActual);
+		}
+		curso = cursoActual;
 		LocalDate fechaActual = LocalDate.now();
 		curso.setFechaRegistro(fechaActual);
 		cursoRepo.save(curso);
