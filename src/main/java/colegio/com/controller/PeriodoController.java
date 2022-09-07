@@ -18,8 +18,8 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/Periodo")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/periodo")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PeriodoController {
 
     private final PeriodoService periodoService;
