@@ -17,7 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/Grado_Seccion")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class Grado_SeccionController {
 
     private final Grado_SeccionService grado_SeccionService;

@@ -17,7 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/Vacacional_Curso")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class Vacacional_CursoController {
 
     private final Vacacional_CursoService vacacional_CursoService;

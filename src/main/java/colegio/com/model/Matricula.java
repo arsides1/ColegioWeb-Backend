@@ -59,8 +59,9 @@ public class Matricula implements Serializable {
 	@Column( length = 100, nullable = false)
 	private String colegioProcedencia;
 
-	@Column( length = 2, nullable = false)
-	private String esRepitente;
+	@Column( )
+	@Convert(converter= BooleanConverters.CharacterConverter.class )
+	private Boolean esRepitente;
 
 	@Column()
 	@Convert(converter= BooleanConverters.CharacterConverter.class )

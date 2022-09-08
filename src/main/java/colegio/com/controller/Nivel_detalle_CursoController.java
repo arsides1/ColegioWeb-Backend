@@ -17,7 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/Nivel_detalle_Curso")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class Nivel_detalle_CursoController {
 
     private final Nivel_detalle_CursoService nivel_detalle_CursoService;

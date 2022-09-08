@@ -1,8 +1,12 @@
 package colegio.com.model;
 
 import colegio.com.convertir.BooleanConverters;
+import colegio.com.convertir.JsonLocalDateDeserializer;
+import colegio.com.convertir.JsonLocalDateSerializer;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 
 import javax.persistence.*;
@@ -42,7 +46,9 @@ public class Apoderado implements Serializable {
 
     @Column(nullable = false)
 //    @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern = "dd-MM-yyyy")
+//    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonDeserialize( using = JsonLocalDateDeserializer.class )
+    @JsonSerialize( using = JsonLocalDateSerializer.class )
     private LocalDate fechaNacimiento;
 
     @Column(nullable = false)
