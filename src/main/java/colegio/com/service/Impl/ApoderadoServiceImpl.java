@@ -1,7 +1,6 @@
 package colegio.com.service.Impl;
 
 
-import colegio.com.model.Alumno;
 import colegio.com.model.Apoderado;
 import colegio.com.repository.ApoderadoRepositoryJPA;
 import colegio.com.service.ApoderadoService;

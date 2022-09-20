@@ -2,7 +2,6 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Alumno;
-import colegio.com.model.Periodo;
 import colegio.com.repository.AlumnoRepositoryJPA;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

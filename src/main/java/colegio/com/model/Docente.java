@@ -62,6 +62,10 @@ public class Docente implements Serializable {
     @Column(length = 100, nullable = false)
     private String direccion;
 
+    @Column(length = 9, nullable=false)
+    private String celular;
+
+
     @Column(length = 100, nullable = false)
     private String email;
 

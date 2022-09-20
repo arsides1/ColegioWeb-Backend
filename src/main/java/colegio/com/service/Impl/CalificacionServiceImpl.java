@@ -2,7 +2,6 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Calificacion;
-import colegio.com.model.Periodo;
 import colegio.com.repository.CalificacionRepositoryJPA;
 import colegio.com.service.CalificacionService;
 import lombok.RequiredArgsConstructor;

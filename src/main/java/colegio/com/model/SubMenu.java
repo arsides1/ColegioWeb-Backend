@@ -1,6 +1,7 @@
 package colegio.com.model;
 
 import colegio.com.convertir.BooleanConverters;
+//
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -46,8 +47,8 @@ public class SubMenu implements Serializable {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechaRegistro;
 
-    @OneToMany(mappedBy = "idSubMenu", cascade = CascadeType.ALL)
+ /*   @OneToMany(mappedBy = "idSubMenu", cascade = CascadeType.ALL)
     @JsonBackReference(value="menu_permiso")
-    private List<Permiso> permisoList;
+    private List<Permiso> permisoList;*/
 
 }

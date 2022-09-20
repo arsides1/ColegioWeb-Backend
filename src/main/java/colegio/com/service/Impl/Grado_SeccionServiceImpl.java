@@ -2,7 +2,6 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Grado_Seccion;
-import colegio.com.model.Periodo;
 import colegio.com.repository.Grado_SeccionRepositoryJPA;
 import colegio.com.service.Grado_SeccionService;
 import lombok.RequiredArgsConstructor;

@@ -2,7 +2,6 @@ package colegio.com.service;
 
 
 
-import colegio.com.model.Alumno;
 import colegio.com.model.Apoderado;
 
 import java.util.List;
