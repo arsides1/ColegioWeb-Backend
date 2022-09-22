@@ -2,6 +2,7 @@ package colegio.com.service.Impl;
 
 
 import colegio.com.model.Nivel;
+import colegio.com.model.Periodo;
 import colegio.com.repository.NivelRepositoryJPA;
 import colegio.com.service.NivelService;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +36,21 @@ public class NivelServiceImpl implements NivelService {
 		LocalDate fechaActual = LocalDate.now();
 		nivel.setFechaRegistro(fechaActual);
 		nivelRepo.save(nivel);
+	}
+
+	@Override
+	public Nivel actualizarNivel(Nivel nivel) {
+		LocalDate fechaActual = LocalDate.now();
+		nivel.setFechaRegistro(fechaActual);
+		//periodo.setEstado(false);
+	/*	if( !periodo.getEstado()){
+			periodo.setEstado(true);
+		}
+		if(null == periodo.getEstado()) {
+			periodo.setEstado(false);
+		}
+*/
+		return nivelRepo.save(nivel);
 	}
 
 	@Override

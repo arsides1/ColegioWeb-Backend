@@ -1,8 +1,8 @@
 package colegio.com.model;
 
 import colegio.com.convertir.BooleanConverters;
-import colegio.com.convertir.JsonLocalDateDeserializer;
-import colegio.com.convertir.JsonLocalDateSerializer;
+import colegio.com.fecha_hora.JsonLocalDateDeserializer;
+import colegio.com.fecha_hora.JsonLocalDateSerializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -11,7 +11,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Entity

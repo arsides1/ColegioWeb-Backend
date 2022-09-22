@@ -63,7 +63,7 @@ public class NivelController {
 
 
 
-   /* @PutMapping("/actualizar")
+    @PutMapping("/actualizar")
    //@RequestMapping(value = "/actualizar", method = { RequestMethod.GET, RequestMethod.PUT })
     public ResponseEntity<?> actualizar(@RequestBody Nivel nivel) {
 
@@ -89,7 +89,7 @@ public class NivelController {
     }
 
 
-*/
+
 
 
  @PutMapping("/editar/{id}")

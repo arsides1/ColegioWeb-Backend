@@ -1,7 +1,13 @@
 package colegio.com.model;
 
 import colegio.com.convertir.BooleanConverters;
+import colegio.com.fecha_hora.JsonLocalDateDeserializer;
+import colegio.com.fecha_hora.JsonLocalDateSerializer;
+import colegio.com.fecha_hora.JsonLocalDateTimeDeserializer;
+import colegio.com.fecha_hora.JsonLocalDateTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 
 import javax.persistence.*;
@@ -49,9 +55,13 @@ public class Nivel implements Serializable {
     private String descpricionTurno;
 
     @Column(nullable = false)
+    @JsonDeserialize( using = JsonLocalDateTimeDeserializer.class )
+    @JsonSerialize( using = JsonLocalDateTimeSerializer.class )
     private LocalTime horaInicio;
 
     @Column(nullable = false)
+    @JsonDeserialize( using = JsonLocalDateTimeDeserializer.class )
+    @JsonSerialize( using = JsonLocalDateTimeSerializer.class )
     private LocalTime horaFin;
 
     @Column()
