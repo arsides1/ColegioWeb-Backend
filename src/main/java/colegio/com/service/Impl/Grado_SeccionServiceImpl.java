@@ -57,6 +57,21 @@ public class Grado_SeccionServiceImpl implements Grado_SeccionService {
 	}
 
 	@Override
+	public Grado_Seccion actualizarGrado_Seccion(Grado_Seccion grado_Seccion) {
+		LocalDate fechaActual = LocalDate.now();
+		grado_Seccion.setFechaRegistro(fechaActual);
+		//periodo.setEstado(false);
+	/*	if( !periodo.getEstado()){
+			periodo.setEstado(true);
+		}
+		if(null == periodo.getEstado()) {
+			periodo.setEstado(false);
+		}
+*/
+		return grado_SeccionRepo.save(grado_Seccion);
+	}
+
+	@Override
 	public void delete(Long grado_SeccionId) {
 		grado_SeccionRepo.deleteById(grado_SeccionId);
 	}

@@ -63,8 +63,8 @@ public class Grado_SeccionController {
 
 
 
-   /* @PutMapping("/actualizar")
-   //@RequestMapping(value = "/actualizar", method = { RequestMethod.GET, RequestMethod.PUT })
+    @PutMapping("/actualizar")
+   @RequestMapping(value = "/actualizar", method = { RequestMethod.GET, RequestMethod.PUT })
     public ResponseEntity<?> actualizar(@RequestBody Grado_Seccion grado_Seccion) {
 
 
@@ -77,7 +77,7 @@ public class Grado_SeccionController {
         try {
             grado_SeccionService.actualizarGrado_Seccion(grado_Seccion);
             respuesta.put("codigoRespuesta", "Ok");
-            respuesta.put("msjRespuesta","Se Actualizo el Grado_Seccion con codigo: " + grado_Seccion.getIdGrado_Seccion());
+            respuesta.put("msjRespuesta","Se Actualizo el Grado_Seccion con codigo: " + grado_Seccion.getIdGradoSeccion());
             respuesta.put("fechaCreacion", new Date(0).toString());
         }
         catch(Exception ex) {
@@ -89,7 +89,7 @@ public class Grado_SeccionController {
     }
 
 
-*/
+
 
 
  @PutMapping("/editar/{id}")

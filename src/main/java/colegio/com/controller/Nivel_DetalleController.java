@@ -1,7 +1,9 @@
 package colegio.com.controller;
 
 import colegio.com.model.Nivel_Detalle;
+import colegio.com.model.Periodo;
 import colegio.com.service.Nivel_DetalleService;
+import colegio.com.service.PeriodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,7 @@ import java.util.Map;
 public class Nivel_DetalleController {
 
     private final Nivel_DetalleService nivel_DetalleService;
-
+    private final PeriodoService periodoService;
     @GetMapping("/listar")
     public ResponseEntity<?> listar()  {
         List<Nivel_Detalle> nivel_Detalles = this.nivel_DetalleService.listarNivel_Detalle();
@@ -31,7 +33,16 @@ public class Nivel_DetalleController {
 		/*Collection<Nivel_Detalle> nivel_Detalle = nivel_DetalleService.findAll();
 		return new ResponseEntity<>(nivel_Detalle, HttpStatus.OK);*/
     }
+    @GetMapping("/listar-Periodo")
+    public ResponseEntity<?> listarPeriodo()  {
 
+        List<Periodo> periodos = this.periodoService.listarPeriodo();
+
+
+        return ResponseEntity.ok(periodos);
+		/*Collection<Periodo> periodo = periodoService.findAll();
+		return new ResponseEntity<>(periodo, HttpStatus.OK);*/
+    }
 
     @GetMapping("/buscar/{id}")
     public ResponseEntity<?> buscar(@PathVariable(name = "id") Long nivel_DetalleId) {

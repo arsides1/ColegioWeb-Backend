@@ -7,6 +7,7 @@ package colegio.com.service;
 import colegio.com.model.Periodo;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PeriodoService {
 	 
@@ -16,6 +17,8 @@ public interface PeriodoService {
 	public abstract void insert(Periodo periodo);
 
 	public Periodo actualizarPeriodo(Periodo periodo);
+
+	Optional<Periodo> findByEstado(Boolean estado);
 
 	public abstract void update(Periodo periodo);
 

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -58,6 +59,12 @@ public class PeriodoServiceImpl implements PeriodoService {
 */
 		return periodoRepo.save(periodo);
 	}
+
+	@Override
+	public Optional<Periodo> findByEstado(Boolean estado) {
+		return periodoRepo.findByEstado(estado);
+	}
+
 
 	@Override
 	public void update(Periodo periodo) {
