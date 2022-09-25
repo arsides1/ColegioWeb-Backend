@@ -26,7 +26,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         Usuario usuarioLocal = usuarioRepository.findByUsername(usuario.getUsername());
         if(usuarioLocal != null){
             System.out.println("El usuario ya existe");
-
+            //throw new Exception("El usuario ya esta presente");
             throw new UsuarioFoundException("El usuario ya esta presente");
         }
         else{

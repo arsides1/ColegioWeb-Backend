@@ -6,7 +6,6 @@ import colegio.com.security.model.Usuario;
 import colegio.com.security.model.UsuarioRol;
 import colegio.com.security.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/usuarios")
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class UsuarioController {
 
     @Autowired
@@ -33,8 +32,8 @@ public class UsuarioController {
         Set<UsuarioRol> usuarioRoles = new HashSet<>();
 
         Rol rol = new Rol();
-        rol.setRolId(2L);
-        rol.setRolNombre("NORMAL");
+
+        rol.setRolNombre(rol.getRolNombre());
 
         UsuarioRol usuarioRol = new UsuarioRol();
         usuarioRol.setUsuario(usuario);
