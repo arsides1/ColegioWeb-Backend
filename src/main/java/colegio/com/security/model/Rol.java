@@ -9,6 +9,8 @@ import java.util.Set;
 public class Rol {
 
     @Id
+    @Column // no es necesario nombre de atributo de clase = nombre columna
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rolId;
     private String rolNombre;
 

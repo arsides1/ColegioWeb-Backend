@@ -33,18 +33,18 @@ public class ColegioApplication implements CommandLineRunner {
 		/*try{
 			Usuario usuario = new Usuario();
 
-			usuario.setNombre("Arsides");
-			usuario.setApellido("Ancajima");
-			usuario.setUsername("arsides");
+			usuario.setNombre("luis");
+			usuario.setApellido("valencia");
+			usuario.setUsername("luis");
 			usuario.setPassword(bCryptPasswordEncoder.encode("12345"));
-			usuario.setEmail("arsidesav@gmail.com");
+			usuario.setEmail("luisav@gmail.com");
 			usuario.setTelefono("922499309");
 			usuario.setPerfil("foto.png");
 
 
 			Rol rol = new Rol();
-			rol.setRolId(1L);
-			rol.setRolNombre("ADMIN");
+
+			rol.setRolNombre("ALUMNO");
 
 			Set<UsuarioRol> usuarioRoles = new HashSet<>();
 			UsuarioRol usuarioRol = new UsuarioRol();

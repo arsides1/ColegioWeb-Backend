@@ -1,15 +1,12 @@
-package colegio.com.model;
+package colegio.com.security.model;
 
 import colegio.com.convertir.BooleanConverters;
-//
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
@@ -17,8 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(of={"id"})
 @ToString
-@Table(name = "submenu")
-public class SubMenu implements Serializable {
+@Table(name = "menu")
+public class Menu implements Serializable {
 
     /**
      *
@@ -26,29 +23,26 @@ public class SubMenu implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column
+    @Column // no es necesario nombre de atributo de clase = nombre columna
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idSubMenu;
+    private Long idMenu;
 
 
-    @ManyToOne
-    //fk
-    @JoinColumn(name = "idMenu",referencedColumnName = "idMenu")
-    private Menu  idMenu;
 
 
     @Column(length = 50, nullable = false)
     private String nombre;
 
+    @Column(length = 50)
+    private String icono;
+
     @Column()
     @Convert(converter= BooleanConverters.CharacterConverter.class )
-    private Boolean estado;
+    private boolean estado;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechaRegistro;
 
- /*   @OneToMany(mappedBy = "idSubMenu", cascade = CascadeType.ALL)
-    @JsonBackReference(value="menu_permiso")
-    private List<Permiso> permisoList;*/
-
+    @Column(name = "url", length = 50)
+    private String url;
 }
