@@ -38,6 +38,21 @@ public class ApoderadoServiceImpl implements ApoderadoService {
 	}
 
 	@Override
+	public Apoderado actualizarApoderado(Apoderado apoderado) {
+		LocalDate fechaActual = LocalDate.now();
+		apoderado.setFechaRegistro(fechaActual);
+		//periodo.setEstado(false);
+	/*	if( !periodo.getEstado()){
+			periodo.setEstado(true);
+		}
+		if(null == periodo.getEstado()) {
+			periodo.setEstado(false);
+		}
+*/
+		return apoderadoRepo.save(apoderado);
+	}
+
+	@Override
 	public void update(Apoderado apoderado) {
 		Apoderado apoderadoActual = apoderadoRepo.findById(apoderado.getIdApoderado()).orElse(null);
 

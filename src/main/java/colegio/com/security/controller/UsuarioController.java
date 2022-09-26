@@ -62,7 +62,7 @@ public class UsuarioController {
     public void eliminarUsuario(@PathVariable("usuarioId") Long usuarioId){
         usuarioService.eliminarUsuario(usuarioId);
     }
-    @GetMapping(value = "/usuario/{nombre}")
+    @GetMapping(value = "/usuarioos/{nombre}")
     public ResponseEntity<?> listar(@PathVariable("nombre") String nombre) {
         List<Menu> menus = service.listarMenuPorUsuario(nombre);
         return ResponseEntity.ok(menus);

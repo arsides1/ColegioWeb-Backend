@@ -40,10 +40,10 @@ public class Nivel_Detalle implements Serializable {
     @Column(length = 2, nullable = false)
     private Integer totalVacantes;
 
-    @Column(length = 2, nullable = false)
+    @Column(length = 2)
     private Integer totalVacantesDisponibles;
 
-    @Column(length = 2, nullable = false)
+    @Column(length = 2)
     private Integer VacantesOcupadas;
 
     @Column()

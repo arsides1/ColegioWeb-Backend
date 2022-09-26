@@ -63,7 +63,7 @@ public class AlumnoController {
 
 
 
-   /* @PutMapping("/actualizar")
+   @PutMapping("/actualizar")
    //@RequestMapping(value = "/actualizar", method = { RequestMethod.GET, RequestMethod.PUT })
     public ResponseEntity<?> actualizar(@RequestBody Alumno alumno) {
 
@@ -89,7 +89,7 @@ public class AlumnoController {
     }
 
 
-*/
+
 
 
  @PutMapping("/editar/{id}")

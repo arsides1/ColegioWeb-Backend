@@ -27,6 +27,22 @@ public class MatriculaServiceImpl implements MatriculaService {
 		 matriculaRepo.save(matricula);
 		
 	}
+
+	@Override
+	public Matricula actualizarMatricula(Matricula matricula) {
+		LocalDate fechaActual = LocalDate.now();
+		matricula.setFechaRegistro(fechaActual);
+		//periodo.setEstado(false);
+	/*	if( !periodo.getEstado()){
+			periodo.setEstado(true);
+		}
+		if(null == periodo.getEstado()) {
+			periodo.setEstado(false);
+		}
+*/
+		return matriculaRepo.save(matricula);
+	}
+
 	@Override
 	public void update(Matricula matricula) {
 		LocalDate fechaActual = LocalDate.now();

@@ -3,6 +3,7 @@ package colegio.com.service;
 
 
 import colegio.com.model.Alumno;
+import colegio.com.model.Nivel;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public interface AlumnoService {
 
 	public abstract void insert(Alumno alumno);
 
+	public Alumno actualizarAlumno(Alumno alumno);
 	public abstract void update(Alumno alumno);
 
 	public abstract void delete(Long alumnoId);

@@ -54,15 +54,15 @@ public class Nivel implements Serializable {
     @Column(length = 50, nullable = false)
     private String descpricionTurno;
 
-    @Column(nullable = false)
-    @JsonDeserialize( using = JsonLocalDateTimeDeserializer.class )
-    @JsonSerialize( using = JsonLocalDateTimeSerializer.class )
-    private LocalTime horaInicio;
+    @Column(length = 5, nullable = false)
+    //@JsonDeserialize( using = JsonLocalDateTimeDeserializer.class )
+    //@JsonSerialize( using = JsonLocalDateTimeSerializer.class )
+    private String horaInicio;
 
-    @Column(nullable = false)
-    @JsonDeserialize( using = JsonLocalDateTimeDeserializer.class )
-    @JsonSerialize( using = JsonLocalDateTimeSerializer.class )
-    private LocalTime horaFin;
+    @Column(length = 5, nullable = false)
+    //@JsonDeserialize( using = JsonLocalDateTimeDeserializer.class )
+    //@JsonSerialize( using = JsonLocalDateTimeSerializer.class )
+    private String horaFin;
 
     @Column()
     @Convert(converter= BooleanConverters.CharacterConverter.class )

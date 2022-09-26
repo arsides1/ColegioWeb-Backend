@@ -50,8 +50,8 @@ public class Apoderado implements Serializable {
     @JsonSerialize( using = JsonLocalDateSerializer.class )
     private LocalDate fechaNacimiento;
 
-    @Column(nullable = false)
-    private Long sexo;
+    @Column(length = 50, nullable = false)
+    private String sexo;
 
     @Column()
     @Convert(converter= BooleanConverters.CharacterConverter.class )

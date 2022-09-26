@@ -3,7 +3,9 @@ package colegio.com.model;
 import colegio.com.convertir.BooleanConverters;
 import colegio.com.fecha_hora.JsonLocalDateDeserializer;
 import colegio.com.fecha_hora.JsonLocalDateSerializer;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
@@ -56,10 +58,11 @@ public class Periodo implements Serializable {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechaRegistro;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "idPeriodo", cascade = CascadeType.ALL)
     private List <Nivel> nivelList;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "idPeriodo", cascade = CascadeType.ALL)
     private List <Matricula> matriculaList;
 }

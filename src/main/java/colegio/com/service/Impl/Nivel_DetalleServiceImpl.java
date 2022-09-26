@@ -38,6 +38,21 @@ public class Nivel_DetalleServiceImpl implements Nivel_DetalleService {
 	}
 
 	@Override
+	public Nivel_Detalle actualizarNivel_Detalle(Nivel_Detalle nivel_Detalle) {
+		LocalDate fechaActual = LocalDate.now();
+		nivel_Detalle.setFechaRegistro(fechaActual);
+		//periodo.setEstado(false);
+	/*	if( !periodo.getEstado()){
+			periodo.setEstado(true);
+		}
+		if(null == periodo.getEstado()) {
+			periodo.setEstado(false);
+		}
+*/
+		return nivel_DetalleRepo.save(nivel_Detalle);
+	}
+
+	@Override
 	public void update(Nivel_Detalle nivel_Detalle) {
 		LocalDate fechaActual = LocalDate.now();
 		nivel_Detalle.setFechaRegistro(fechaActual);

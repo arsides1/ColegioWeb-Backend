@@ -63,7 +63,7 @@ public class ApoderadoController{
 
 
 
-   /* @PutMapping("/actualizar")
+    @PutMapping("/actualizar")
    //@RequestMapping(value = "/actualizar", method = { RequestMethod.GET, RequestMethod.PUT })
     public ResponseEntity<?> actualizar(@RequestBody Apoderado apoderado) {
 
@@ -89,7 +89,7 @@ public class ApoderadoController{
     }
 
 
-*/
+
 
 
  @PutMapping("/editar/{id}")

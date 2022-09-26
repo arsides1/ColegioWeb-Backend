@@ -74,13 +74,13 @@ public class Nivel_DetalleController {
 
 
 
-   /* @PutMapping("/actualizar")
+    @PutMapping("/actualizar")
    //@RequestMapping(value = "/actualizar", method = { RequestMethod.GET, RequestMethod.PUT })
     public ResponseEntity<?> actualizar(@RequestBody Nivel_Detalle nivel_Detalle) {
 
 
 
-        Nivel_DetalleService.actualizarNivel_Detalle(nivel_Detalle);
+        nivel_DetalleService.actualizarNivel_Detalle(nivel_Detalle);
 
         Map<String,String>respuesta = new HashMap<>();
 
@@ -88,7 +88,7 @@ public class Nivel_DetalleController {
         try {
             nivel_DetalleService.actualizarNivel_Detalle(nivel_Detalle);
             respuesta.put("codigoRespuesta", "Ok");
-            respuesta.put("msjRespuesta","Se Actualizo el Nivel_Detalle con codigo: " + nivel_Detalle.getIdNivel_Detalle());
+            respuesta.put("msjRespuesta","Se Actualizo el Nivel_Detalle con codigo: " + nivel_Detalle.getIdNivelDetalle());
             respuesta.put("fechaCreacion", new Date(0).toString());
         }
         catch(Exception ex) {
@@ -100,7 +100,6 @@ public class Nivel_DetalleController {
     }
 
 
-*/
 
 
  @PutMapping("/editar/{id}")

@@ -38,6 +38,21 @@ public class AlumnoServiceImpl implements AlumnoService {
 	}
 
 	@Override
+	public Alumno actualizarAlumno(Alumno alumno) {
+		LocalDate fechaActual = LocalDate.now();
+		alumno.setFechaRegistro(fechaActual);
+		//periodo.setEstado(false);
+	/*	if( !periodo.getEstado()){
+			periodo.setEstado(true);
+		}
+		if(null == periodo.getEstado()) {
+			periodo.setEstado(false);
+		}
+*/
+		return alumnoRepo.save(alumno);
+	}
+
+	@Override
 	public void update(Alumno alumno) {
 		Alumno alumnoActual = alumnoRepo.findById(alumno.getIdAlumno()).orElse(null);
 
