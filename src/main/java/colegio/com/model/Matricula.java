@@ -3,6 +3,7 @@ package colegio.com.model;
 import colegio.com.convertir.BooleanConverters;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -56,8 +57,8 @@ public class Matricula implements Serializable {
 
 
 
-	@Column( length = 100, nullable = false)
-	private String colegioProcedencia;
+	/*@Column( length = 100, nullable = false)
+	private String colegioProcedencia;*/
 
 	@Column( )
 	@Convert(converter= BooleanConverters.CharacterConverter.class )
@@ -70,7 +71,7 @@ public class Matricula implements Serializable {
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaRegistro;
 
-
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "idMatricula")
 	@JsonBackReference(value="Pagomatri_matricula")
 	private List<PagoMatricula> pagomatriculaList;

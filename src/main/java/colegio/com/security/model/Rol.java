@@ -1,5 +1,7 @@
 package colegio.com.security.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +16,7 @@ public class Rol {
     private Long rolId;
     private String rolNombre;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "rol")
     private Set<UsuarioRol> usuarioRoles = new HashSet<>();
 
