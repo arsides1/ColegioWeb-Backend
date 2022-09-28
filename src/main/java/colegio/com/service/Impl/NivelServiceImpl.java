@@ -69,4 +69,11 @@ public class NivelServiceImpl implements NivelService {
 	public Nivel findById(Long nivelId) {
 		return nivelRepo.findById(nivelId).orElse(null);
 	}
+
+	@Override
+	public void eliminarNivel(Long nivelId) {
+		Nivel nivel = new Nivel();
+		nivel.setIdNivel(nivelId);
+		nivelRepo.delete(nivel);
+	}
 }

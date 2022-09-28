@@ -132,6 +132,9 @@ public class Grado_SeccionController {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encontro matricula con ese id");
 
     }
-
+    @DeleteMapping("/{grado_SeccionId}")
+    public void eliminargrado_Seccion(@PathVariable("grado_SeccionId") Long grado_SeccionId){
+        grado_SeccionService.eliminargrado_Seccion(grado_SeccionId);
+    }
 
 }

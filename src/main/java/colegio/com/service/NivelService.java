@@ -24,4 +24,6 @@ public interface NivelService {
 
 	public abstract Nivel findById(Long nivelId);
 
+	void eliminarNivel(Long nivelId);
+
 }

@@ -20,6 +20,8 @@ public interface Grado_SeccionService {
 
 	public Grado_Seccion actualizarGrado_Seccion(Grado_Seccion grado_Seccion);
 
+
+	void eliminargrado_Seccion(Long grado_SeccionlId);
 	public abstract void delete(Long grado_SeccionId);
 
 	public abstract Grado_Seccion findById(Long grado_SeccionId);

@@ -16,8 +16,8 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/Nivel")
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/nivel")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class NivelController {
 
     private final NivelService nivelService;
@@ -131,6 +131,11 @@ public class NivelController {
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encontro matricula con ese id");
 
+    }
+
+    @DeleteMapping("/{nivelId}")
+    public void eliminarNivel(@PathVariable("nivelId") Long nivelId){
+        nivelService.eliminarNivel(nivelId);
     }
 
 

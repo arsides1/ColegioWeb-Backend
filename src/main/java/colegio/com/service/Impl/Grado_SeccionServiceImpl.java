@@ -72,6 +72,14 @@ public class Grado_SeccionServiceImpl implements Grado_SeccionService {
 	}
 
 	@Override
+	public void eliminargrado_Seccion(Long grado_SeccionId) {
+		Grado_Seccion grado_Seccion = new Grado_Seccion();
+		grado_Seccion.setIdGradoSeccion(grado_SeccionId);
+		grado_SeccionRepo.delete(grado_Seccion);
+
+	}
+
+	@Override
 	public void delete(Long grado_SeccionId) {
 		grado_SeccionRepo.deleteById(grado_SeccionId);
 	}

@@ -30,8 +30,8 @@ public class Matricula implements Serializable {
 	@Column(length = 5, unique=true, nullable = false)
 	private String codigoMatricula;
 
-	@Column( length = 50, nullable = false)
-	private String situacion;
+/*	@Column( length = 50, nullable = false)
+	private String situacion;*/
 
 
 	@ManyToOne
